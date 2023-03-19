@@ -15,12 +15,12 @@
    Documentation extracted by Doxygen 1.8.15 http://www.doxygen.nl/
 */
 
-include <e3DHW_base_lib.1.2.scad>
-include <e3DHW_hardware_data.1.2.scad>
-include <e3DHW_addon_base.1.2.scad>
-include <e3DHW_DIN_rail_lib.1.2.scad>
-include <e3DHW_DIN_boxes_lib.1.2.scad>
-include <e3DHW_addon_box.1.2.scad>
+include <../base/e3DHW_base_lib.1.2.scad>
+include <../base/e3DHW_hardware_data.1.2.scad>
+include <../base/e3DHW_addon_base.1.2.scad>
+include <../base/e3DHW_DIN_rail_lib.1.2.scad>
+include <../base/e3DHW_DIN_boxes_lib.1.2.scad>
+include <../base/e3DHW_addon_box.1.2.scad>
 
 // Shows all vertical box addons
 module vertical_test() {
@@ -79,5 +79,5 @@ _hm=3; // 3 half modules = 26.5 mm
 
 // =================== UNCOMMENT TO RUN
 
-// vertical_test();
+vertical_test();
 // din_DSP4();
