@@ -15,13 +15,13 @@
    Documentation extracted by Doxygen 1.8.15 http://www.doxygen.nl/
 */
 
-include <e3DHW_base_lib.1.2.scad>
-include <e3DHW_addon_base.1.2.scad>
-include <e3DHW_hardware_data.1.2.scad> 
-include <e3DHW_DIN_rail_lib.1.2.scad>
-include <e3DHW_DIN_boxes_lib.1.2.scad>
-include <e3DHW_addon_terminal.1.2.scad>
-include <e3DHW_DIN_modules_A.1.2.scad>
+include <../base/e3DHW_base_lib.1.2.scad>
+include <../base/e3DHW_addon_base.1.2.scad>
+include <../base/e3DHW_hardware_data.1.2.scad> 
+include <../boxes_and_DIN_rail/e3DHW_DIN_rail_lib.1.2.scad>
+include <../boxes_and_DIN_rail/e3DHW_DIN_boxes_lib.1.2.scad>
+include <../more_ADDONs/e3DHW_addon_terminal.1.2.scad>
+include <../DIN_modules/e3DHW_DIN_modules_A.1.2.scad>
 
 // all basic family terminals
 module show_basic_family() {
