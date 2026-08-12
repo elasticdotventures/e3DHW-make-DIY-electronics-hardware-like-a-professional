@@ -15,16 +15,18 @@
    Documentation extracted by Doxygen 1.8.15 http://www.doxygen.nl/
 */
 
-include <e3DHW_base_lib.1.2.scad>
-include <e3DHW_hardware_data.1.2.scad>
-include <e3DHW_addon_base.1.2.scad>
-include <e3DHW_DIN_rail_lib.1.2.scad>
-include <e3DHW_DIN_boxes_lib.1.2.scad>
+include <../base/e3DHW_base_lib.1.2.scad>
+include <../base/e3DHW_hardware_data.1.2.scad>
+include <../base/e3DHW_addon_base.1.2.scad>
+include <../base/e3DHW_DIN_rail_lib.1.2.scad>
+include <../base/e3DHW_DIN_boxes_lib.1.2.scad>
 
 // tests rectangleBox() and custom box
 module test_boxes(){
 // standard rectangleBox: smallest
-   rectangleBox( 15, 15, 10, lidThick = NOTOPTHICKNESS, bottomThick = NOTOPTHICKNESS, lidHole = 0,  towerHole =0, lidStyle = LSIN, y = 220 );
+   rectangleBox( 15, 15, 10, lidThick = NOTOPTHICKNESS, 
+   bottomThick = NOTOPTHICKNESS, lidHole = 0,  towerHole =0, 
+   lidStyle = LSIN, y = 220 );
 // standard rectangle box: example
    rectangleBox( 40, 80, 35, lidHole = -5, lidThick = TOPTHICKNESS, towerHole = -2000, bottomFill = 86, lidStyle = LSOUT, y = 100 );
 }
@@ -105,6 +107,18 @@ boxDINSeparator(length=3*i + 1, width= DINWIDTHS, top = DINTOP, fill = max(0, 10
 }
 
 // many simpleDINBox
+/*
+   DINPOT - no top
+   DINTOP - small top 
+   DINHTOP - big top 
+
+   DINWIDTHS - small width
+   DINWIDTHM - medium width
+   DINWIDTHL - large width
+
+   SIZE 1 - small height
+   SIZE 2 - 
+*/ 
 module test_DINboxes() {
    widths=[DINWIDTHS, DINWIDTHM, DINWIDTHL ];
    tops = [DINPOT, DINTOP, DINHTOP];
@@ -124,20 +138,24 @@ translate([300,0,0]) bigDINBox(size_hm = 14, top=DINHTOP, base_width=100);  // w
 
 // test of all LidStile on a small box
 module test_lidStyle() {
-                     rectangleBox( 40, 40, 30, lidStyle = LSNONE);
- translate([50,0,0]) rectangleBox( 40, 40, 30, lidStyle = LSTOW);
- translate([100,0,0])rectangleBox( 40, 40, 30, lidStyle = LSOUT);
- translate([150,0,0])rectangleBox( 40, 40, 30, lidStyle = LSIN);
+                     rectangleBox( 40, 40, 30, lidStyle = LSNONE);   // no lid
+ translate([50,0,0]) rectangleBox( 40, 40, 30, lidStyle = LSTOW);  // tower 
+ translate([100,0,0])rectangleBox( 40, 40, 30, lidStyle = LSOUT); // outside lid
+ translate([150,0,0])rectangleBox( 40, 40, 30, lidStyle = LSIN);  // inside lid
 }
 
 // =================== UNCOMMENT TO RUN
 
-// test_boxes();
-// custom_box();
-// test_terminals();
-// test_boxDINSeparator1();
-// test_boxDINSeparator2();
-// test_DINboxes();
+// test_boxes();   // big box, small box
+// custom_box();   // weird shape
+// test_terminals(); // ??
+test_boxDINSeparator1();      // vert. box with hollow base w/din
+// test_boxDINSeparator2();      // vert. box with mesh w/din
+// test_DINboxes();  // very slow, ..
+
+
+// simpleDINBox(3, DINTOP, DINWIDTHL, x=0, y=0);
+
 // test_bigDINBox();
 // test_lidStyle();
 

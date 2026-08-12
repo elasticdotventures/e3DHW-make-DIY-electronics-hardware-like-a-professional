@@ -79,7 +79,7 @@ module watering_Sonoff04(){
 
 // =================== UNCOMMENT TO RUN
 
-// all_base_addon();
-// watering_Sonoff04();
+//all_base_addon();
+watering_Sonoff04();
 
 

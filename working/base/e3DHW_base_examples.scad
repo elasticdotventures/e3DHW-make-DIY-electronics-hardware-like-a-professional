@@ -81,7 +81,7 @@ module test_get_boltz_get_nutz(){
 
 // =================== UNCOMMENT TO RUN
 
-// test_base_lib();
-// test_do_nuthole();
+test_base_lib();
+test_do_nuthole();
 // test_get_boltz_get_nutz();
 

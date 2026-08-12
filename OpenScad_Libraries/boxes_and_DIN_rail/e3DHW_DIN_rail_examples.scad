@@ -14,8 +14,8 @@
    Tested with: 3DRAG 1.2 https://www.futurashop.it/3drag-stampante-3d-versione-1.2-in-kit-7350-3dragk
    Documentation extracted by Doxygen 1.8.15 http://www.doxygen.nl/
 */
-include <e3DHW_hardware_data.1.2.scad>
-include <e3DHW_DIN_rail_lib.1.2.scad>
+include <../base/e3DHW_hardware_data.1.2.scad>
+include <../base/e3DHW_DIN_rail_lib.1.2.scad>
 
 // test: all DIN clips on a rail
 
@@ -24,7 +24,13 @@ module show_all(){
   // low-level: all clips, with the smallest size.
   // All clips are translated and rotated to have the top center of the DIN rail aligned on the x axis.
   // The main parameter is clipD: the distance of the clip holes or the clip top dimension (see do_DINClip())
+    
+
+   // SCB 
+   // SPC SCC SPF SCF NSS MSX
+
    for (clip = ["SCB","SPC","SCC","SPF","SCF","NSS","MSX"], inc=[0, 20])
+       
       let( clipD = get_min_d(clip)+inc,   // clipD: clip holes distance or clip top size, 2 values, min and min+20
          xoffset =  -(clipD *get_xm(clip) + get_xq(clip)) - get_exd(clip)/2 )  // x required to center the DIN rail
          translate([60*get_position(clip),inc*6,0]) rotate([90,0,90])  // to sets clips aligned
@@ -50,4 +56,6 @@ module show_all(){
 
 // =================== UNCOMMENT TO RUN
 
-//  show_all();
+
+
+// show_all();
